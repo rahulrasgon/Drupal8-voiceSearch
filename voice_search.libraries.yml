@@ -1,0 +1,11 @@
+voice_search:
+  version: VERSION
+  css:
+    base:
+      css/style.css: {}
+  js:
+    js/textarea-helper.js: {}
+    js/main.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

@@ -1,0 +1,4 @@
+administer voice_search:
+  title: 'Administer Voice Search'
+  description: 'Configure Voice Search.'
+  restrict access: true

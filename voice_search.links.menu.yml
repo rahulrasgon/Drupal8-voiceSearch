@@ -1,0 +1,6 @@
+voice_search.admin:
+  title: 'Voice Search Configuration'
+  description: 'configuration for voice search.'
+  parent: system.admin_config_search
+  route_name: voice.form
+  weight: 100

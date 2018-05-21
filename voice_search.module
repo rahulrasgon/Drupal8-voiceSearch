@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Contains module code.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+
+/**
+*  Implements hook_help().
+*  
+*/
+function voice_search_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case "help.page.voice_search":
+      $output = '';
+      $output .= '<p>' . t('A search server and search index are used to execute searches. Several indexes can exist per server.<br />You need at least one server and one index to create searches on your site.') . '</p>';
+      return $output;
+    break;
+  }
+}
+
+
+/**
+ * Implements hook_form_alter().
+ */
+function voice_search_form_alter(&$form, $form_state, $form_id) {
+  global $base_url;
+  $config = \Drupal::config('voice.adminsettings');
+  $isenable = $config->get('voice_search_status');
+  if ($isenable) {
+    if ($form_id === 'search_block_form') {
+      $form['keys']['#prefix'] = '<div id="speech-content-elements">';
+      $form['keys']['#suffix'] = '<div class="speech-content-mic speech-mic"></div></div>';
+      $form['keys']['#attributes']['id'][] = 'speech-page-content';
+      $form['#attached']['library'][] = 'voice_search/voice_search';
+    }
+  }
+}

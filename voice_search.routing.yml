@@ -1,0 +1,7 @@
+voice.form:
+  path: '/admin/config/search/voice-search'
+  defaults:
+    _form: '\Drupal\voice_search\Form\VoiceSearchForm'
+    _title: 'Voice Search Form'
+  requirements:
+    _permission: 'administer voice_search'
